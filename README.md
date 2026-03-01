@@ -10,9 +10,9 @@ O sistema permite cadastrar, visualizar, concluir e excluir tarefas, proporciona
 #### Tela Principal
 ![Tela Principal](sistema-de-controle-de-tarefas_oficina/imagens/tela-principal.png)
 #### Botões Extras
-![Botões Extras](imagens/botoes -extras.png)
+![Botões Extras](sistema-de-controle-de-tarefas_oficina/imagens/botoes-extras.png)
 #### Status das Tarefas
-![Status das Tarefas](imagens/status-das-tarefas.png)
+![Status das Tarefas](sistema-de-controle-de-tarefas_oficina/imagens/status-das-tarefas.png)
 
 ## Funcionalidades
 
