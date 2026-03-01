@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/flexbox.css">
+</head>
+<body>
+    
+    
+    <div class="links">
+        <h3>Links Rápidos</h3>
+        
+        <a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener noreferrer">Peças-Carro</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Acessórios-Carro</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Baterias-Carro</a>
+        <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Pneus</a>
+        <div class="contador-tarefas">
+            <h3>Status</h3>
+            <p><strong>Pendentes:</strong> {{ pendentes}}</p>
+            <p><strong>Concluídas:</strong> {{ concluidas}}</p>
+
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <h1>Sitema de Controle de Tarefas</h1>
+        <h2>Adicione a Nova Tarefa</h2>
+
+        <form action="/add" method="POST">
+            <input type="text" name="descricao" placeholder="Digite a Tarefa" required>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <h3>Minha Lista de Tarefas</h3>
+        <ul class="lista-tarefa">
+            {% for tarefas in tarefas %}
+                
+                <li class="item-tarefa">
+                    <span class="desc-tarefa">
+                        {% if tarefas["concluida"] ==1 %}
+                            <s>{{ tarefas["descricao"] }}</s>
+                        {% else %}
+                            {{ tarefas["descricao"] }}
+                        {% endif %}
+                    </span>
+                    <div class="acoes-tarefa">
+                        {% if tarefas["concluida"] == 0%}
+                            <a class="btn1 btn-sucesso" href="/update/{{ tarefas['id'] }}">Concluir</a>
+                        {% endif %}
+                        <a class="btn1 btn-deletar" href="/delete/{{ tarefas['id'] }}">Excluir</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+</body>
+</html>
